@@ -918,6 +918,8 @@ void PeridigmNS::Peridigm::InitializeRestart() {
 	std::string str;
 	struct stat sb;
 	char const * restart_directory_namePtr;
+	// Initialize currentTime variable
+	currentTime = 0;
 	if (stat("restart-000001", &sb) == 0 && S_ISDIR(sb.st_mode)){
 	    str=getCmdOutput("ls -td -- ./restart*/ | head -n1 | cut -d'/' -f2");
 	    if (str != ""){
